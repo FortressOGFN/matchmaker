@@ -1,0 +1,50 @@
+{
+  "name": "nova-matchmaker",
+  "version": "1.0.0",
+  "description": "Nova is an open-source Fortnite matchmaking service written in TypeScript.",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "bin": {
+    "nova": "dist/src/main.js"
+  },
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./sdk": "./dist/src/sdk/index.js"
+  },
+  "files": [
+    "dist/src",
+    "scripts",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/src/main.js",
+    "dev": "tsc -p tsconfig.json && node --enable-source-maps dist/src/main.js",
+    "test": "tsc -p tsconfig.json && node scripts/run-tests.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "keywords": [
+    "fortnite",
+    "matchmaking",
+    "matchmaker",
+    "ogfn",
+    "websocket",
+    "typescript"
+  ],
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.4.0"
+  }
+}
